@@ -1,6 +1,6 @@
 from google.cloud import storage
 
-def upload_to_gcs(bucket, object_name, local_file):
+def upload_file_to_gcs(bucket, object_name, local_file):
 	"""
 	Ref: https://cloud.google.com/storage/docs/uploading-objects#storage-upload-object-python
 	"""
