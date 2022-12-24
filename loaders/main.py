@@ -13,5 +13,6 @@ def main():
 		print(f"Uploading file: {file_name} to cloud storage")
 		upload_to_gcs(BUCKET, file_name, file_path)
 		print("File uploaded")
+
 if __name__ == '__main__':
-    main()
+	main()
