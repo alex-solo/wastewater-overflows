@@ -6,13 +6,13 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=wasterwater_overflows
+      - POSTGRES_DB=wastewater_overflows
     volumes: 
-      - ./wasterwater_overflows_postgres_data:/var/lib/postgres/data/ny_taxi
+      - ./wastewater_overflows_postgres_data:/var/lib/postgres/data/wastewater_overflows
     ports: 
       - '5432:5432'
     networks:
-      - wasterwater_overflows_network
+      - wastewater_overflows_network
   pgadmin:
     container_name: pg_admin
     image: dpage/pgadmin4
@@ -24,14 +24,14 @@ services:
     ports: 
       - '8080:80'
     networks:
-      - wasterwater_overflows_network
+      - wastewater_overflows_network
 
 
 volumes:
-  wasterwater_overflows_postgres_data:
+  wastewater_overflows_postgres_data:
   local_pgdata:
   pgadmin-data:
 
 networks:
-  wasterwater_overflows_network:
+  wastewater_overflows_network:
     driver: bridge

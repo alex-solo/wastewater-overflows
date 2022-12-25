@@ -1,4 +1,6 @@
 from google.cloud import storage
+from sqlalchemy import create_engine
+from decouple import config
 
 def upload_file_to_gcs(bucket, object_name, local_file):
 	"""
@@ -13,3 +15,16 @@ def upload_file_to_gcs(bucket, object_name, local_file):
 	bucket = client.bucket(bucket)
 	blob = bucket.blob(object_name)
 	blob.upload_from_filename(local_file)
+
+def docker_pg_engine():
+	user = config("USER_DEV")
+	password = config("PASSWORD_DEV")
+	host = config("HOST_DEV")
+	port = config("PORT_DEV")
+	db = config("DB_DEV")
+
+	connection_string = f"postgresql://{user}:{password}@{host}:{port}/{db}"
+	engine = create_engine(connection_string)
+	engine.connect()
+
+	return engine
