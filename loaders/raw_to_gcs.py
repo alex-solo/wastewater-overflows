@@ -14,9 +14,5 @@ def upload_to_gcs():
 		upload_file_to_gcs(BUCKET, file_name, file_path)
 		print("File uploaded")
 
-def upload_to_bq():
-	pass
-
 if __name__ == '__main__':
 	upload_to_gcs()
-	upload_to_bq()
